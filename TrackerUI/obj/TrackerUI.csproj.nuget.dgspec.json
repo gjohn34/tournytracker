@@ -1,20 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerUI\\TrackerUI.csproj": {}
+    "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerUI\\TrackerUI.csproj": {
+    "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj",
+        "projectName": "TrackerLibrary",
+        "projectPath": "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerUI\\TrackerUI.csproj",
+        "projectUniqueName": "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj",
         "projectName": "TrackerUI",
-        "projectPath": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerUI\\TrackerUI.csproj",
-        "packagesPath": "C:\\Users\\Glen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerUI\\obj\\",
+        "projectPath": "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj",
+        "packagesPath": "C:\\Users\\glenj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\glenj\\source\\repos\\TrackerUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Glen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\glenj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,8 +36,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj": {
+                "projectPath": "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -38,7 +51,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -57,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
