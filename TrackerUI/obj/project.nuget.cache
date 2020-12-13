@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nFPzZJZJWm+0BEy5f9JpbMG6q+aXtrfbdyoNGDQGN7Nv7Jw0+l2xcxNcsjEmBMriH2GR2/HMfZDKbbzCug969w==",
+  "dgSpecHash": "zz88nqKSXSLPeebRelJHkuA1rolvD5T5NFNsNDnmCFlh/Bu3HeiLUJHyY/jifziMwtK3ax6hwHrdOQ8Bz85Ycw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj",
+  "projectFilePath": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerUI\\TrackerUI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

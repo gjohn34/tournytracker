@@ -1,27 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj": {}
+    "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerUI\\TrackerUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj": {
+    "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj",
         "projectName": "TrackerLibrary",
-        "projectPath": "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj"
+        "projectPath": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj"
       },
       "frameworks": {
         "net472": {}
       }
     },
-    "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj": {
+    "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerUI\\TrackerUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj",
+        "projectUniqueName": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerUI\\TrackerUI.csproj",
         "projectName": "TrackerUI",
-        "projectPath": "C:\\Users\\glenj\\source\\repos\\TrackerUI\\TrackerUI.csproj",
+        "projectPath": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerUI\\TrackerUI.csproj",
         "packagesPath": "C:\\Users\\glenj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\glenj\\source\\repos\\TrackerUI\\obj\\",
+        "outputPath": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\glenj\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,8 +37,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj": {
-                "projectPath": "C:\\Users\\glenj\\source\\repos\\TrackerLibrary\\TrackerLibrary.csproj"
+              "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj": {
+                "projectPath": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj"
               }
             }
           }
