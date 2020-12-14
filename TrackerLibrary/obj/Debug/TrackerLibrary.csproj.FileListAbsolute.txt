@@ -32,3 +32,11 @@ C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\bin\Debug\Microsoft
 C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\bin\Debug\Microsoft.IdentityModel.Tokens.dll
 C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\bin\Debug\TrackerLibrary.dll
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\bin\Debug\TrackerLibrary.pdb
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\bin\Debug\Dapper.dll
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\obj\Debug\TrackerLibrary.csprojAssemblyReference.cache
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CopyComplete
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\obj\Debug\TrackerLibrary.dll
+C:\Users\Glen\Source\Repos\tournytracker\TrackerLibrary\obj\Debug\TrackerLibrary.pdb

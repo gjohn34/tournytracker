@@ -14,7 +14,6 @@ namespace TrackerUI
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             TrackerLibrary.GlobalConfig.InitalizeConnections(true, true);
