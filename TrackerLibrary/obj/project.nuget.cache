@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hh4pLl5p5y2OhnUCMSVQzZ2rHVu9R7xrwO7ECf6Hb84TE3KO3VNXy4g5zkKg4GXkDKS0ny3xASL5x7HsvQdMww==",
+  "dgSpecHash": "dJvbOviuTrHJ7bdhZBthpALXJsEWiLKjWZKTYPlMsMwD97e8k89BxhNWhYinAns8139aQ8n+CJwlnr7LrhfW1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Glen\\Source\\Repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
+  "projectFilePath": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Glen\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512"
   ],

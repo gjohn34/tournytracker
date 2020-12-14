@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Glen\\Source\\Repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj": {}
+    "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Glen\\Source\\Repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj": {
+    "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Glen\\Source\\Repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
         "projectName": "TrackerLibrary",
-        "projectPath": "C:\\Users\\Glen\\Source\\Repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
+        "projectPath": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
         "packagesPath": "C:\\Users\\Glen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Glen\\Source\\Repos\\tournytracker\\TrackerLibrary\\obj\\",
+        "outputPath": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
