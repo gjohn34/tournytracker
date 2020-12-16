@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.DataAccess;
 using TrackerLibrary.Model;
+using TrackerUI.FormHelpers.Validate;
 
 namespace TrackerUI
 {
@@ -45,7 +46,8 @@ namespace TrackerUI
 
         private void createPrizeButton_Click(object sender, EventArgs e)
         {
-            if (ValidateForm().Valid)
+            Validate validation = ValidateForm();
+            if (validation.Valid)
             {
                 PrizeModel model = new PrizeModel(
                     placeNameValue.Text, 
@@ -62,59 +64,43 @@ namespace TrackerUI
             } else
             {
                 // TODO - Loop over errors
-                MessageBox.Show("This is bad m8");
+                validation.DisplayErrors();
+                //MessageBox.Show("This is bad m8");
             }
         }
         private Validate ValidateForm()
         {
-            Validate result = new Validate();
+            Validate errors = new Validate();
             int placeNumber = 0;
             if (!int.TryParse(placeNumberValue.Text, out placeNumber))
             {
-                result.New("Place Number must be a number");
+                errors.New("Place Number must be a number");
             }
             if (placeNumber < 1)
             {
-                result.New("Place Number cannot be less than 1");
+                errors.New("Place Number cannot be less than 1");
             }
             if (placeNameValue.Text.Length == 0)
             {
-                result.New("Place Name must be present");
+                errors.New("Place Name must be present");
             }
             decimal prizeAmount = 0;
             double prizePercentage = 0;
 
             if (!decimal.TryParse(prizeAmountValue.Text, out prizeAmount) || !double.TryParse(prizePercentageValue.Text, out prizePercentage))
             {
-                result.New("Prize must be a number");
+                errors.New("Prize must be a number");
             }
             if (prizeAmount <= 0 && prizePercentage <= 0)
             {
-                result.New("Prize must be greater than 0");
+                errors.New("Prize must be greater than 0");
             }
             if (prizeAmount < 0 || prizePercentage > 100)
             {
-                result.New("Prize must be below 100%");
+                errors.New("Prize must be below 100%");
             }
 
-            return result;
+            return errors;
         }
-    }
-}
-
-public class Validate
-{
-    public bool Valid { get; set; }
-    public List<string> Message { get; set; }
-    public Validate()
-    {
-        Valid = true;
-        Message = new List<string>();
-    }
-
-    public void New(string message)
-    {
-        Valid = false;
-        Message.Add(message);
     }
 }

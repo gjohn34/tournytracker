@@ -11,11 +11,6 @@ namespace TrackerLibrary.DataAccess.TextHelpers
 {
     public static class TextConnectorProcessor
     {
-        /// <summary>
-        /// Taking a file path and prepend the full filePath
-        /// </summary>
-        /// <param name="filename">eg PrizeModel.csv</param>
-        /// <returns></returns>
         public static string FullFilePath(this string filename)
         {
             return $"{ConfigurationManager.AppSettings["filePath"]}\\{filename}";
@@ -49,6 +44,25 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             return output;
         }
 
+        public static List<PersonModel> ConvertToPersonModels(this List<string> lines)
+        {
+            List<PersonModel> output = new List<PersonModel>();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                PersonModel prize = new Model.PersonModel();
+                prize.Id = int.Parse(cols[0]);
+                prize.FirstName = cols[1];
+                prize.LastName = cols[2];
+                prize.EmailAddress = cols[3];
+                prize.CellPhoneNumber = cols[4];
+                output.Add(prize);
+            }
+            return output;
+        }
+
         public static void SaveToPrizesFile(this List<PrizeModel> models, string fileName)
         {
             List<string> lines = new List<string>();
@@ -58,6 +72,15 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
 
+        }
+        public static void SaveToPeopleFile(this List<PersonModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+            foreach (PersonModel model in models)
+            {
+                lines.Add($"{model.Id},{model.FirstName},{model.LastName},{model.EmailAddress},{model.CellPhoneNumber}");
+            }
+            File.WriteAllLines(fileName.FullFilePath(), lines);
         }
 
 
