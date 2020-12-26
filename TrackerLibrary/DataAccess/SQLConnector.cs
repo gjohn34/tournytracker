@@ -49,5 +49,17 @@ namespace TrackerLibrary.DataAccess
                 return model;
             }
         }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            List<PersonModel> output;
+        
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            {
+                output = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
+                //output = connection.Execute("dbo.spPeople_GetAll");
+            }
+            return output;
+        }
     }
 }

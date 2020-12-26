@@ -55,7 +55,7 @@ namespace TrackerUI
             // 
             this.teamNameValue.Location = new System.Drawing.Point(22, 114);
             this.teamNameValue.Name = "teamNameValue";
-            this.teamNameValue.Size = new System.Drawing.Size(313, 34);
+            this.teamNameValue.Size = new System.Drawing.Size(313, 29);
             this.teamNameValue.TabIndex = 7;
             // 
             // teamNameLabel
@@ -64,7 +64,7 @@ namespace TrackerUI
             this.teamNameLabel.Font = new System.Drawing.Font("Arial", 14.2F);
             this.teamNameLabel.Location = new System.Drawing.Point(22, 84);
             this.teamNameLabel.Name = "teamNameLabel";
-            this.teamNameLabel.Size = new System.Drawing.Size(139, 27);
+            this.teamNameLabel.Size = new System.Drawing.Size(112, 22);
             this.teamNameLabel.TabIndex = 6;
             this.teamNameLabel.Text = "Team Name";
             // 
@@ -74,7 +74,7 @@ namespace TrackerUI
             this.headerLabel.Font = new System.Drawing.Font("Arial", 16.2F);
             this.headerLabel.Location = new System.Drawing.Point(22, 40);
             this.headerLabel.Name = "headerLabel";
-            this.headerLabel.Size = new System.Drawing.Size(171, 32);
+            this.headerLabel.Size = new System.Drawing.Size(137, 25);
             this.headerLabel.TabIndex = 5;
             this.headerLabel.Text = "Create Team";
             // 
@@ -84,7 +84,7 @@ namespace TrackerUI
             this.selectTeamMemberDropDown.FormattingEnabled = true;
             this.selectTeamMemberDropDown.Location = new System.Drawing.Point(22, 216);
             this.selectTeamMemberDropDown.Name = "selectTeamMemberDropDown";
-            this.selectTeamMemberDropDown.Size = new System.Drawing.Size(318, 35);
+            this.selectTeamMemberDropDown.Size = new System.Drawing.Size(318, 30);
             this.selectTeamMemberDropDown.TabIndex = 10;
             // 
             // selectTeamMemberLabel
@@ -93,7 +93,7 @@ namespace TrackerUI
             this.selectTeamMemberLabel.Font = new System.Drawing.Font("Arial", 14.2F);
             this.selectTeamMemberLabel.Location = new System.Drawing.Point(22, 186);
             this.selectTeamMemberLabel.Name = "selectTeamMemberLabel";
-            this.selectTeamMemberLabel.Size = new System.Drawing.Size(237, 27);
+            this.selectTeamMemberLabel.Size = new System.Drawing.Size(191, 22);
             this.selectTeamMemberLabel.TabIndex = 9;
             this.selectTeamMemberLabel.Text = "Select Team Member";
             // 
@@ -106,6 +106,7 @@ namespace TrackerUI
             this.addMemberButton.TabIndex = 11;
             this.addMemberButton.Text = "Add Member";
             this.addMemberButton.UseVisualStyleBackColor = true;
+            this.addMemberButton.Click += new System.EventHandler(this.addMemberButton_Click);
             // 
             // newMemberGroupBox
             // 
@@ -131,8 +132,8 @@ namespace TrackerUI
             // 
             this.cellphoneValue.Location = new System.Drawing.Point(128, 185);
             this.cellphoneValue.Name = "cellphoneValue";
-            this.cellphoneValue.Size = new System.Drawing.Size(170, 30);
-            this.cellphoneValue.TabIndex = 3;
+            this.cellphoneValue.Size = new System.Drawing.Size(170, 26);
+            this.cellphoneValue.TabIndex = 4;
             // 
             // cellphoneLabel
             // 
@@ -140,7 +141,7 @@ namespace TrackerUI
             this.cellphoneLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.cellphoneLabel.Location = new System.Drawing.Point(10, 188);
             this.cellphoneLabel.Name = "cellphoneLabel";
-            this.cellphoneLabel.Size = new System.Drawing.Size(104, 24);
+            this.cellphoneLabel.Size = new System.Drawing.Size(87, 19);
             this.cellphoneLabel.TabIndex = 2;
             this.cellphoneLabel.Text = "Cellphone";
             // 
@@ -159,7 +160,7 @@ namespace TrackerUI
             // 
             this.emailValue.Location = new System.Drawing.Point(128, 140);
             this.emailValue.Name = "emailValue";
-            this.emailValue.Size = new System.Drawing.Size(170, 30);
+            this.emailValue.Size = new System.Drawing.Size(170, 26);
             this.emailValue.TabIndex = 3;
             // 
             // emailLabel
@@ -168,7 +169,7 @@ namespace TrackerUI
             this.emailLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.emailLabel.Location = new System.Drawing.Point(10, 143);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(61, 24);
+            this.emailLabel.Size = new System.Drawing.Size(51, 19);
             this.emailLabel.TabIndex = 2;
             this.emailLabel.Text = "Email";
             // 
@@ -176,8 +177,8 @@ namespace TrackerUI
             // 
             this.lastNameValue.Location = new System.Drawing.Point(128, 96);
             this.lastNameValue.Name = "lastNameValue";
-            this.lastNameValue.Size = new System.Drawing.Size(170, 30);
-            this.lastNameValue.TabIndex = 3;
+            this.lastNameValue.Size = new System.Drawing.Size(170, 26);
+            this.lastNameValue.TabIndex = 2;
             // 
             // lastNameLabel
             // 
@@ -185,7 +186,7 @@ namespace TrackerUI
             this.lastNameLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lastNameLabel.Location = new System.Drawing.Point(10, 99);
             this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(110, 24);
+            this.lastNameLabel.Size = new System.Drawing.Size(90, 19);
             this.lastNameLabel.TabIndex = 2;
             this.lastNameLabel.Text = "Last Name";
             // 
@@ -193,7 +194,7 @@ namespace TrackerUI
             // 
             this.firstNameValue.Location = new System.Drawing.Point(128, 51);
             this.firstNameValue.Name = "firstNameValue";
-            this.firstNameValue.Size = new System.Drawing.Size(170, 30);
+            this.firstNameValue.Size = new System.Drawing.Size(170, 26);
             this.firstNameValue.TabIndex = 1;
             // 
             // firstNameLabel
@@ -202,18 +203,19 @@ namespace TrackerUI
             this.firstNameLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.firstNameLabel.Location = new System.Drawing.Point(10, 54);
             this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(112, 24);
+            this.firstNameLabel.Size = new System.Drawing.Size(91, 19);
             this.firstNameLabel.TabIndex = 0;
             this.firstNameLabel.Text = "First Name";
             // 
             // teamMembersListBox
             // 
             this.teamMembersListBox.FormattingEnabled = true;
-            this.teamMembersListBox.ItemHeight = 26;
+            this.teamMembersListBox.ItemHeight = 21;
             this.teamMembersListBox.Location = new System.Drawing.Point(370, 149);
             this.teamMembersListBox.Name = "teamMembersListBox";
-            this.teamMembersListBox.Size = new System.Drawing.Size(352, 446);
+            this.teamMembersListBox.Size = new System.Drawing.Size(352, 445);
             this.teamMembersListBox.TabIndex = 13;
+            this.teamMembersListBox.SelectedIndexChanged += new System.EventHandler(this.teamMembersListBox_SelectedIndexChanged);
             // 
             // deleteSelectedMemberButton
             // 
@@ -224,6 +226,7 @@ namespace TrackerUI
             this.deleteSelectedMemberButton.TabIndex = 11;
             this.deleteSelectedMemberButton.Text = "Delete Selected";
             this.deleteSelectedMemberButton.UseVisualStyleBackColor = true;
+            this.deleteSelectedMemberButton.Click += new System.EventHandler(this.deleteSelectedMemberButton_Click);
             // 
             // createTeamButton
             // 
@@ -237,7 +240,7 @@ namespace TrackerUI
             // 
             // CreateTeamForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(774, 695);

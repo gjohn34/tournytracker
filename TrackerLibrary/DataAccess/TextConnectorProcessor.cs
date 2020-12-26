@@ -33,7 +33,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             {
                 string[] cols = line.Split(',');
 
-                PrizeModel prize = new Model.PrizeModel();
+                PrizeModel prize = new PrizeModel();
                 prize.Id = int.Parse(cols[0]);
                 prize.PlaceNumber = int.Parse(cols[1]);
                 prize.PlaceName = cols[2];
@@ -52,7 +52,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             {
                 string[] cols = line.Split(',');
 
-                PersonModel prize = new Model.PersonModel();
+                PersonModel prize = new PersonModel();
                 prize.Id = int.Parse(cols[0]);
                 prize.FirstName = cols[1];
                 prize.LastName = cols[2];
