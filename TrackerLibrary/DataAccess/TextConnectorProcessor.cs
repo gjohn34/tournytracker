@@ -33,12 +33,14 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             {
                 string[] cols = line.Split(',');
 
-                PrizeModel prize = new PrizeModel();
-                prize.Id = int.Parse(cols[0]);
-                prize.PlaceNumber = int.Parse(cols[1]);
-                prize.PlaceName = cols[2];
-                prize.PrizeAmount = decimal.Parse(cols[3]);
-                prize.PrizePercentage = double.Parse(cols[4]);
+                PrizeModel prize = new PrizeModel
+                {
+                    Id = int.Parse(cols[0]),
+                    PlaceNumber = int.Parse(cols[1]),
+                    PlaceName = cols[2],
+                    PrizeAmount = decimal.Parse(cols[3]),
+                    PrizePercentage = double.Parse(cols[4])
+                };
                 output.Add(prize);
             }
             return output;
@@ -52,13 +54,43 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             {
                 string[] cols = line.Split(',');
 
-                PersonModel prize = new PersonModel();
-                prize.Id = int.Parse(cols[0]);
-                prize.FirstName = cols[1];
-                prize.LastName = cols[2];
-                prize.EmailAddress = cols[3];
-                prize.CellPhoneNumber = cols[4];
+                PersonModel prize = new PersonModel
+                {
+                    Id = int.Parse(cols[0]),
+                    FirstName = cols[1],
+                    LastName = cols[2],
+                    EmailAddress = cols[3],
+                    CellPhoneNumber = cols[4]
+                };
                 output.Add(prize);
+            }
+            return output;
+        }
+
+        public static List<TeamModel> ConvertToTeamModels(this List<string> lines, string peopleFileName)
+        {
+            List<TeamModel> output = new List<TeamModel>();
+            List<PersonModel> people = peopleFileName.FullFilePath().LoadFile().ConvertToPersonModels();
+            PersonModel[] peopleArray = people.ToArray();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+                TeamModel team = new TeamModel
+                {
+                    Id = int.Parse(cols[0]),
+                    TeamName = cols[1]
+                };
+
+                string[] ids = cols[2].Split('|');
+                foreach (string id in ids)
+                {
+                    PersonModel person = Array.Find(peopleArray, x => x.Id == int.Parse(id));
+                    team.TeamMembers.Add(person);
+                    //team.TeamMembers.Add((PersonModel)people.Where(x => x.Id == int.Parse(id)));
+                    //team.TeamMembers.Add(people.Where(x => x.Id == int.Parse(id)).First());
+                }
+                output.Add(team);
             }
             return output;
         }
@@ -82,17 +114,20 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }
-
-
-
-
-
-
-
-
-
-
-
-
+        public static void SaveToTeamsFile(this List<TeamModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+            foreach (TeamModel model in models)
+            {
+                string teamMembers = "";
+                foreach (PersonModel teamMember in model.TeamMembers)
+                {
+                    teamMembers += $"{teamMember.Id}|";
+                }
+                teamMembers = teamMembers.TrimEnd('|');
+                lines.Add($"{model.Id},{model.TeamName},{teamMembers}");
+            }
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+        }
     }
 }

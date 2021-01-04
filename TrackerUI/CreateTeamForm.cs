@@ -20,7 +20,7 @@ namespace TrackerUI
         {
             InitializeComponent();
 
-            CreateSampleData();
+            //CreateSampleData();
 
             LoadLists();
         }
@@ -66,7 +66,7 @@ namespace TrackerUI
 
         private void createMemberButton_Click(object sender, EventArgs e)
         {
-            Validate validation = ValidateForm();
+            Validate validation = ValidateNewMemberForm();
             if (validation.Valid)
             {
                 PersonModel model = new PersonModel(
@@ -90,7 +90,7 @@ namespace TrackerUI
                 validation.DisplayErrors();
             }
         }
-        private Validate ValidateForm()
+        private Validate ValidateNewMemberForm()
         {
             Validate errors = new Validate();
             // TODO - Add Validation
@@ -109,6 +109,19 @@ namespace TrackerUI
             if (cellphoneValue.Text.Length == 0)
             {
                 errors.New("Mobile must exist");
+            }
+            return errors;
+        }
+        private Validate ValidateTeamForm()
+        {
+            Validate errors = new Validate();
+            if (teamNameValue.Text == "")
+            {
+                errors.New("Team Name must exist");
+            }
+            if (teamMembersListBox.Items.Count == 0)
+            {
+                errors.New("No Team Members selected");
             }
             return errors;
         }
@@ -138,6 +151,35 @@ namespace TrackerUI
                 availableTeamMembers.Add(person);
                 LoadLists();
             }
+        }
+
+        private void createTeamButton_Click(object sender, EventArgs e)
+        {
+            Validate validation = ValidateTeamForm();
+            if (validation.Valid)
+            {
+                TeamModel team = new TeamModel
+                {
+                    TeamName = teamNameValue.Text,
+                    TeamMembers = selectedTeamMembers
+                };
+
+
+                GlobalConfig.Connection.CreateTeam(team);
+
+                teamNameValue.Text = "";
+                availableTeamMembers =  GlobalConfig.Connection.GetPerson_All();
+                selectedTeamMembers = new List<PersonModel>();
+
+                LoadLists();
+            }
+            else
+            {
+                validation.DisplayErrors();
+            }
+
+
+            // TODO - Close or reset form
         }
     }
 }

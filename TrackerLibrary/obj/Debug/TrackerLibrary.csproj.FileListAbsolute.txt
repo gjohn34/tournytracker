@@ -19,3 +19,4 @@ C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLi
 C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csproj.CopyComplete
 C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.dll
 C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.pdb
+C:\Users\glenj\source\repos\TournamentTracker\TrackerLibrary\obj\Debug\TrackerLibrary.csprojAssemblyReference.cache
