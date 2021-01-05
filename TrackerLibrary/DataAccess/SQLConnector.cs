@@ -12,9 +12,10 @@ namespace TrackerLibrary.DataAccess
 {
     public class SQLConnector : IDataConnection
     {
+        private readonly string db = GlobalConfig.CnnString("Tournaments");
         public PrizeModel CreatePrize(PrizeModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(db))
             {
                 var p = new DynamicParameters();
                 p.Add("@PlaceNumber", model.PlaceNumber);
@@ -33,7 +34,7 @@ namespace TrackerLibrary.DataAccess
 
         public PersonModel CreatePerson(PersonModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(db))
             {
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
@@ -54,7 +55,7 @@ namespace TrackerLibrary.DataAccess
         {
             List<PersonModel> output;
         
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(db))
             {
                 output = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
                 //output = connection.Execute("dbo.spPeople_GetAll");
@@ -87,6 +88,24 @@ namespace TrackerLibrary.DataAccess
 
                 return model;
             }
+        }
+
+        public List<TeamModel> GetTeam_All()
+        {
+            List<TeamModel> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(db))
+            {
+                output = connection.Query<TeamModel>("dbo.spTeams_GetAll").ToList();
+
+                foreach (TeamModel team in output)
+                {
+                    var p = new DynamicParameters(); 
+                    p.Add("@TeamId", team.Id);
+                    team.TeamMembers = connection.Query<PersonModel>("dbo.spTeamMembers_GetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
+                }
+            }
+            return output;
         }
     }
 }
