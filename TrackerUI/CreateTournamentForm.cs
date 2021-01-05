@@ -10,7 +10,7 @@ using TrackerLibrary.Model;
 
 namespace TrackerUI
 {
-    public partial class CreateTournamentForm : Form
+    public partial class CreateTournamentForm : Form, IPrizeRequester, ITeamRequester
     {
         List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
         List<TeamModel> selectedTeams = new List<TeamModel>();
@@ -44,17 +44,7 @@ namespace TrackerUI
 
         }
 
-        private void headerLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CreateTournamentForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void selectTeamLabel_Click(object sender, EventArgs e)
         {
 
         }
@@ -77,6 +67,40 @@ namespace TrackerUI
             {
                 selectedTeams.Remove(team);
                 availableTeams.Add(team);
+                LoadLists();
+            }
+        }
+
+        private void createPrizeButton_Click(object sender, EventArgs e)
+        {
+            // Call the CreatePrizeForm
+            CreatePrizeForm cpf = new CreatePrizeForm(this);
+
+            cpf.Show();
+
+        }
+        public void PrizeComplete(PrizeModel model)
+        {
+            selectedPrizes.Add(model);
+            LoadLists();
+        }
+        public void TeamComplete(TeamModel model)
+        {
+            selectedTeams.Add(model);
+            LoadLists();
+        }
+        private void createNewLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateTeamForm ctf = new CreateTeamForm(this);
+            ctf.Show();
+        }
+
+        private void deleteSelectedPrizesButton_Click(object sender, EventArgs e)
+        {
+            PrizeModel prize = (PrizeModel)prizesListBox.SelectedItem;
+            if (prize != null)
+            {
+                selectedPrizes.Remove(prize);
                 LoadLists();
             }
         }

@@ -57,7 +57,6 @@ namespace TrackerUI
             this.headerLabel.Size = new System.Drawing.Size(196, 25);
             this.headerLabel.TabIndex = 2;
             this.headerLabel.Text = "Create Tournament";
-            this.headerLabel.Click += new System.EventHandler(this.headerLabel_Click);
             // 
             // tournamentNameLabel
             // 
@@ -111,7 +110,6 @@ namespace TrackerUI
             this.selectTeamLabel.Size = new System.Drawing.Size(116, 22);
             this.selectTeamLabel.TabIndex = 7;
             this.selectTeamLabel.Text = "Select Team";
-            this.selectTeamLabel.Click += new System.EventHandler(this.selectTeamLabel_Click);
             // 
             // createNewLinkLabel
             // 
@@ -123,6 +121,7 @@ namespace TrackerUI
             this.createNewLinkLabel.TabIndex = 9;
             this.createNewLinkLabel.TabStop = true;
             this.createNewLinkLabel.Text = "create new";
+            this.createNewLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.createNewLinkLabel_LinkClicked);
             // 
             // addTeamButton
             // 
@@ -144,6 +143,7 @@ namespace TrackerUI
             this.createPrizeButton.TabIndex = 11;
             this.createPrizeButton.Text = "Create Prize";
             this.createPrizeButton.UseVisualStyleBackColor = true;
+            this.createPrizeButton.Click += new System.EventHandler(this.createPrizeButton_Click);
             // 
             // tournamentTeamsListBox
             // 
@@ -183,6 +183,7 @@ namespace TrackerUI
             this.deleteSelectedPrizesButton.TabIndex = 17;
             this.deleteSelectedPrizesButton.Text = "Delete Selected";
             this.deleteSelectedPrizesButton.UseVisualStyleBackColor = true;
+            this.deleteSelectedPrizesButton.Click += new System.EventHandler(this.deleteSelectedPrizesButton_Click);
             // 
             // prizesLabel
             // 

@@ -58,7 +58,6 @@ namespace TrackerUI
             this.placeNumberValue.Name = "placeNumberValue";
             this.placeNumberValue.Size = new System.Drawing.Size(170, 26);
             this.placeNumberValue.TabIndex = 1;
-            this.placeNumberValue.TextChanged += new System.EventHandler(this.placeNumberValue_TextChanged);
             // 
             // placeNumberLabel
             // 
@@ -86,7 +85,6 @@ namespace TrackerUI
             this.placeNameValue.Name = "placeNameValue";
             this.placeNameValue.Size = new System.Drawing.Size(170, 26);
             this.placeNameValue.TabIndex = 2;
-            this.placeNameValue.TextChanged += new System.EventHandler(this.placeNameValue_TextChanged);
             // 
             // prizeAmountLabel
             // 
@@ -105,7 +103,6 @@ namespace TrackerUI
             this.prizeAmountValue.Size = new System.Drawing.Size(170, 26);
             this.prizeAmountValue.TabIndex = 3;
             this.prizeAmountValue.Text = "0";
-            this.prizeAmountValue.TextChanged += new System.EventHandler(this.prizeAmountValue_TextChanged);
             // 
             // orLabel
             // 
@@ -134,7 +131,6 @@ namespace TrackerUI
             this.prizePercentageValue.Size = new System.Drawing.Size(170, 26);
             this.prizePercentageValue.TabIndex = 4;
             this.prizePercentageValue.Text = "0";
-            this.prizePercentageValue.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // createPrizeButton
             // 
