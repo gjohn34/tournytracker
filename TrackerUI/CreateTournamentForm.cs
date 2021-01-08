@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.Model;
+using TrackerUI.FormHelpers.Validate;
+
 
 namespace TrackerUI
 {
@@ -42,6 +44,24 @@ namespace TrackerUI
             prizesListBox.DisplayMember = "PlaceName";
 
 
+        }
+
+        private Validate ValidateForm()
+        {
+            Validate errors = new Validate();
+
+            if (tournamentNameValue.Text == "")
+            {
+                errors.New("Need a tournament name");
+            }
+            if (decimal.TryParse(entryFeeValue.Text, out _) == false)
+            {
+                errors.New("Bad Entry Fee");
+            } else if (entryFeeValue.Text == "0") 
+            {
+                errors.New("Fee must be >= 1 ");
+            }
+            return errors;
         }
 
         private void CreateTournamentForm_Load(object sender, EventArgs e)
@@ -103,6 +123,34 @@ namespace TrackerUI
                 selectedPrizes.Remove(prize);
                 LoadLists();
             }
+        }
+
+        private void createTournamentButton_Click(object sender, EventArgs e)
+        {
+            // Validate name and Entry
+            Validate validation = ValidateForm();
+            if (validation.Valid)
+            {
+                // Create Tournament    
+                TournamentModel tournament = new TournamentModel();
+
+                tournament.TournamentName = tournamentNameValue.Text;
+                tournament.EntryFee = decimal.Parse(entryFeeValue.Text);
+                tournament.EnteredTeams = selectedTeams;
+                tournament.Prizes = selectedPrizes;
+
+                GlobalConfig.Connection.CreateTournament(tournament);
+            } else
+            {
+                validation.DisplayErrors();
+            }
+
+
+            // Add prizes to tournamentPrizes joining table
+
+            // Add teams to tournamentTeams joining table
+
+            // Create Matchups
         }
     }
 }

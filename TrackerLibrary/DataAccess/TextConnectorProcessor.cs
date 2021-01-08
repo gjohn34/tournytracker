@@ -95,6 +95,65 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             return output;
         }
 
+        public static List<TournamentModel> ConvertToTournamentModels(
+            this List<string> lines,
+            string teamFileName, 
+            string peopleFileName, 
+            string prizeFileName
+            )
+        {
+            List<TournamentModel> tournaments = new List<TournamentModel>();
+            List<TeamModel> teams = teamFileName.FullFilePath().LoadFile().ConvertToTeamModels(peopleFileName);
+            TeamModel[] teamArray = teams.ToArray();
+            List<PrizeModel> prizes = prizeFileName.FullFilePath().LoadFile().ConvertToPrizeModels();
+            PrizeModel[] prizeArray = prizes.ToArray();
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                TournamentModel tournament = new TournamentModel
+                {
+                    Id = int.Parse(cols[0]),
+                    TournamentName = cols[1],
+                    EntryFee = decimal.Parse(cols[2]),
+                };
+
+                // Adding Team
+                string[] teamIds = cols[3].Split('|');
+                foreach (string id in teamIds)
+                {
+                    TeamModel team = Array.Find(teamArray, x => x.Id == int.Parse(id));
+                    tournament.EnteredTeams.Add(team);
+                }
+
+                // Adding Prizes
+
+                string[] prizesId = cols[4].Split('|');
+                foreach (string id in prizesId)
+                {
+                    PrizeModel prize = Array.Find(prizeArray, x => x.Id == int.Parse(id));
+                    tournament.Prizes.Add(prize);
+                }
+
+                // TODO - Adding Rounds
+                tournament.Rounds = new List<List<MatchupModel>>();
+
+                //string[] roundList = cols[5].Split('^');
+                //foreach (string round in roundList)
+                //{
+                //}
+
+                //string[] rounds = cols[5].Split('^');
+                //foreach (string round in rounds)
+                //{
+                //    string[] roundId = round.Split('|');
+                //}
+
+            }
+
+            return tournaments;
+        }
+
         public static void SaveToPrizesFile(this List<PrizeModel> models, string fileName)
         {
             List<string> lines = new List<string>();
@@ -126,6 +185,47 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 }
                 teamMembers = teamMembers.TrimEnd('|');
                 lines.Add($"{model.Id},{model.TeamName},{teamMembers}");
+            }
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+        }
+
+        public static void SaveToTournamentsFile(this List<TournamentModel> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+            foreach (TournamentModel model in models)
+            {
+
+                // Teams
+                string teamIds = "";
+                foreach (TeamModel team in model.EnteredTeams)
+                {
+                    teamIds += $"{team.Id}|";
+                }
+                teamIds = teamIds.TrimEnd('|');
+
+                // Prizes
+                string prizeIds = "";
+                foreach (PrizeModel prize in model.Prizes)
+                {
+                    prizeIds += $"{prize.Id}|";
+                }
+                prizeIds = prizeIds.TrimEnd('|');
+
+                // Rounds
+                string roundList = "";
+                foreach (List<MatchupModel> list in model.Rounds)
+                {
+                    string roundIds = "";
+                    foreach (MatchupModel round in list)
+                    {
+                        roundIds += $"{round.Id}|";
+                    }
+                    roundIds = roundIds.TrimEnd('|');
+                    roundList += $"{roundIds}^";
+                }
+                roundList = roundList.TrimEnd('^');
+
+                lines.Add($"{model.Id},{model.TournamentName},{model.EntryFee},{teamIds},{prizeIds},{roundList}");
             }
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }

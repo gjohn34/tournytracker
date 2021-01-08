@@ -65,7 +65,7 @@ namespace TrackerLibrary.DataAccess
 
         public TeamModel CreateTeam(TeamModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(db))
             {
                 // Creating Team
                 var p = new DynamicParameters();
@@ -106,6 +106,56 @@ namespace TrackerLibrary.DataAccess
                 }
             }
             return output;
+        }
+
+        private void SaveTournament(TournamentModel model, IDbConnection connection)
+        {
+            var p = new DynamicParameters();
+            p.Add("@TournamentName", model.TournamentName);
+            p.Add("@EntryFee", model.EntryFee);
+            p.Add("@id", 0, DbType.Int32, direction: ParameterDirection.Output);
+
+            connection.Execute("dbo.spTournaments_Insert", p, commandType: CommandType.StoredProcedure);
+
+            model.Id = p.Get<int>("@id");
+        }
+
+        private void SaveTournamentPrizes(TournamentModel model, IDbConnection connection)
+        {
+            foreach (PrizeModel prize in model.Prizes)
+            {
+                var p = new DynamicParameters();
+                p.Add("@TournamentId", model.Id);
+                p.Add("@PrizeId", prize.Id);
+
+                connection.Execute("dbo.spTournamentPrizes_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        private void SaveTournamentEntries(TournamentModel model, IDbConnection connection)
+        {
+            foreach (TeamModel team in model.EnteredTeams)
+            {
+                var p = new DynamicParameters();
+                p.Add("@TournamentId", model.Id);
+                p.Add("@TeamId", team.Id);
+
+                connection.Execute("dbo.spTournamentEntries_Insert", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public TournamentModel CreateTournament(TournamentModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(db))
+            {
+                SaveTournament(model, connection);
+
+                SaveTournamentPrizes(model, connection);
+
+                SaveTournamentEntries(model, connection);
+
+                return model;
+            }
         }
     }
 }
