@@ -139,6 +139,10 @@ namespace TrackerUI
                 tournament.EnteredTeams = selectedTeams;
                 tournament.Prizes = selectedPrizes;
 
+                // Create Matchups
+                TournamentLogic.CreateRounds(tournament);
+
+
                 GlobalConfig.Connection.CreateTournament(tournament);
             } else
             {
@@ -150,7 +154,6 @@ namespace TrackerUI
 
             // Add teams to tournamentTeams joining table
 
-            // Create Matchups
         }
     }
 }
