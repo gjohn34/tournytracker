@@ -27,14 +27,14 @@ namespace TrackerUI
             LoadLists();
         }
 
-        private void CreateSampleData()
-        {
-            availableTeamMembers.Add(new PersonModel { FirstName = "Foo", LastName = "Bar" });
-            availableTeamMembers.Add(new PersonModel { FirstName = "Fizz", LastName = "Bang" });
+        //private void CreateSampleData()
+        //{
+        //    availableTeamMembers.Add(new PersonModel { FirstName = "Foo", LastName = "Bar" });
+        //    availableTeamMembers.Add(new PersonModel { FirstName = "Fizz", LastName = "Bang" });
 
-            selectedTeamMembers.Add(new PersonModel { FirstName = "Jon", LastName = "Snow" });
-            selectedTeamMembers.Add(new PersonModel { FirstName = "Ice", LastName = "King" });
-        }
+        //    selectedTeamMembers.Add(new PersonModel { FirstName = "Jon", LastName = "Snow" });
+        //    selectedTeamMembers.Add(new PersonModel { FirstName = "Ice", LastName = "King" });
+        //}
 
         private void LoadLists()
         {

@@ -26,17 +26,16 @@ namespace TrackerLibrary
             foreach (TeamModel team in teams)
             {
                 match.Entries.Add(new MatchupEntryModel { TeamCompeting = team });
-                if (byes > 0)
-                {
-                    byes -= 1;
-                    match.Entries.Add(new MatchupEntryModel { TeamCompeting = new TeamModel() });
-                }
-                if (match.Entries.Count == 2)
+                if (byes > 0 || match.Entries.Count == 2)
                 {
                     match.MatchupRound = 1;
                     result.Add(match);
                     match = new MatchupModel();
-                    // Save complete match
+                    if (byes > 0)
+                    {
+                        byes -= 1;
+                    }
+                    //match.Entries.Add(new MatchupEntryModel { TeamCompeting = new TeamModel() });
                 }
             }
             return result;
