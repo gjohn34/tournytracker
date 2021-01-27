@@ -144,6 +144,8 @@ namespace TrackerUI
 
 
                 GlobalConfig.Connection.CreateTournament(tournament);
+
+                //this.Close();
             } else
             {
                 validation.DisplayErrors();
