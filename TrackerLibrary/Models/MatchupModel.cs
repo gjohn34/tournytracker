@@ -19,6 +19,8 @@ namespace TrackerLibrary.Model
         /// </summary>
         public TeamModel Winner { get; set; }
 
+        public int WinnerId { get; set; }
+
         /// <summary>
         /// RoundId
         /// </summary>
