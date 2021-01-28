@@ -22,8 +22,6 @@ namespace TrackerUI
         {
             InitializeComponent();
             LoadLists();
-            callingForm = caller;
-
         }
 
         private void LoadLists()
