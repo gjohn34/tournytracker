@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj": {}
+    "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj": {
+    "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj",
         "projectName": "TrackerLibrary",
-        "projectPath": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\TrackerLibrary.csproj",
-        "packagesPath": "C:\\Users\\Glen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Glen\\source\\repos\\tournytracker\\TrackerLibrary\\obj\\",
+        "projectPath": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\TrackerLibrary.csproj",
+        "packagesPath": "C:\\Users\\glenj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\glenj\\source\\repos\\TournamentTracker\\TrackerLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\Glen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\glenj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
